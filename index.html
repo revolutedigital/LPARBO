@@ -3401,7 +3401,7 @@
 
             try {
                 // Envia para Google Sheets
-                const response = await fetch('https://script.google.com/macros/s/AKfycbxrnnfg2OSOyhiYbxTjeRO2nJsKKCxRUsnSclTHunVTjMPYC3rZti7Zhq_QI_DqlspK/exec', {
+                const response = await fetch('https://script.google.com/macros/s/AKfycby-X1QwdjU3gGwV9hsCfgIVXcgJdaxeVkgrEIxx2YNwfhmy5VsIr1efhpI_wDL5qIJU/exec', {
                     method: 'POST',
                     mode: 'no-cors',
                     headers: {
@@ -3410,7 +3410,7 @@
                     body: JSON.stringify(data)
                 });
 
-                console.log('✅ Lead enviado para Google Sheets!');
+                console.log('✅ Lead enviado para Google Sheets com Data/Hora!');
 
             } catch (error) {
                 console.error('❌ Erro ao enviar lead para planilha:', error);
