@@ -7,7 +7,7 @@ Allow: /images/
 Allow: /favicon.svg
 
 # Sitemap
-Sitemap: https://lparbo-production.up.railway.app/sitemap.xml
+Sitemap: https://residencialarboretum.up.railway.app/sitemap.xml
 
 # Google
 User-agent: Googlebot
