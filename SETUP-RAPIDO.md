@@ -8,6 +8,7 @@
 - B: TELEFONE
 - C: EMAIL
 - D: ANUNCIO
+- E: DATA/HORA (adicionado automaticamente)
 
 ---
 
@@ -81,6 +82,7 @@ Lead salvo na planilha:
 - B: TELEFONE ((19) 99999-9999)
 - C: EMAIL (joao@email.com)
 - D: ANUNCIO (LP)
+- E: DATA/HORA (11/12/2024 15:30:45)
     ↓
 Redirect para Thank You Page
     ↓

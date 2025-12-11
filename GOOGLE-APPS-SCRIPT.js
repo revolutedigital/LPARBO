@@ -9,13 +9,19 @@ function doPost(e) {
     // Parse dos dados recebidos
     var data = JSON.parse(e.postData.contents);
 
+    // Pega data/hora atual no fuso horário de São Paulo
+    var now = new Date();
+    var timeZone = "America/Sao_Paulo";
+    var dateTime = Utilities.formatDate(now, timeZone, "dd/MM/yyyy HH:mm:ss");
+
     // Adiciona nova linha com os dados nos campos corretos:
-    // A: NOME | B: TELEFONE | C: EMAIL | D: ANUNCIO
+    // A: NOME | B: TELEFONE | C: EMAIL | D: ANUNCIO | E: DATA/HORA
     sheet.appendRow([
       data.name,              // A: NOME
       data.phone,             // B: TELEFONE
       data.email,             // C: EMAIL
-      data.source || 'LP'     // D: ANUNCIO
+      data.source || 'LP',    // D: ANUNCIO
+      dateTime                // E: DATA/HORA
     ]);
 
     // Log para debug
@@ -47,11 +53,16 @@ function doPost(e) {
 function testScript() {
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
 
+  var now = new Date();
+  var timeZone = "America/Sao_Paulo";
+  var dateTime = Utilities.formatDate(now, timeZone, "dd/MM/yyyy HH:mm:ss");
+
   sheet.appendRow([
     'Teste Nome',           // A: NOME
     '(19) 99999-9999',     // B: TELEFONE
     'teste@email.com',     // C: EMAIL
-    'LP - Teste'           // D: ANUNCIO
+    'LP - Teste',          // D: ANUNCIO
+    dateTime               // E: DATA/HORA
   ]);
 
   Logger.log('✅ Teste executado com sucesso!');

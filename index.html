@@ -3384,16 +3384,40 @@
         });
 
         // Submit do formulário do modal
-        leadModalForm.addEventListener('submit', (e) => {
+        leadModalForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const formData = new FormData(e.target);
-            const data = Object.fromEntries(formData);
-            console.log('🎯💰🔥 LEAD QUENTE CAPTURADO (Modal Premium - Pós Pricing):', data);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                source: 'LP'
+            };
 
-            // Salva dados no localStorage para usar na thank you page
+            console.log('🎯💰🔥 LEAD QUENTE CAPTURADO:', data);
+
+            // Salva dados no localStorage
             localStorage.setItem('leadData', JSON.stringify(data));
 
-            // Redireciona para Thank You Page (onde o evento Lead será disparado)
+            try {
+                // Envia para Google Sheets
+                const response = await fetch('https://script.google.com/macros/s/AKfycbxrnnfg2OSOyhiYbxTjeRO2nJsKKCxRUsnSclTHunVTjMPYC3rZti7Zhq_QI_DqlspK/exec', {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                console.log('✅ Lead enviado para Google Sheets!');
+
+            } catch (error) {
+                console.error('❌ Erro ao enviar lead para planilha:', error);
+                // Mesmo com erro, continua o fluxo
+            }
+
+            // Redireciona para Thank You Page (onde o evento Lead do Meta Pixel será disparado)
             window.location.href = '/thank-you.html';
         });
 
