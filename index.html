@@ -3144,6 +3144,7 @@
                 value: 690000,
                 currency: 'BRL'
             });
+            console.log('✅ META PIXEL: ViewContent Event Disparado');
         });
 
         // Create Particles
@@ -3347,6 +3348,7 @@
                 currency: 'BRL',
                 value: 690000
             });
+            console.log('✅ META PIXEL: InitiateCheckout Event Disparado');
         }
 
         // Função helper para fechar modal
@@ -3388,24 +3390,11 @@
             const data = Object.fromEntries(formData);
             console.log('🎯💰🔥 LEAD QUENTE CAPTURADO (Modal Premium - Pós Pricing):', data);
 
-            // META PIXEL - Lead Event (Formulário submetido)
-            fbq('track', 'Lead', {
-                content_name: 'Lead Form - Modal Premium',
-                content_category: 'Real Estate Lead',
-                currency: 'BRL',
-                value: 690000,
-                status: 'completed'
-            });
+            // Salva dados no localStorage para usar na thank you page
+            localStorage.setItem('leadData', JSON.stringify(data));
 
-            // META PIXEL - CompleteRegistration Event
-            fbq('track', 'CompleteRegistration', {
-                content_name: 'Lead Registration Complete',
-                status: 'completed'
-            });
-
-            alert('Perfeito! Em instantes você receberá todo o material exclusivo no seu WhatsApp.');
-            closeModal();
-            e.target.reset();
+            // Redireciona para Thank You Page (onde o evento Lead será disparado)
+            window.location.href = '/thank-you.html';
         });
 
         // Máscara WhatsApp - Modal Form

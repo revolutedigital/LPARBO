@@ -20,4 +20,10 @@
       <image:title>Silure Incorporadora</image:title>
     </image:image>
   </url>
+  <url>
+    <loc>https://lparbo-production.up.railway.app/thank-you.html</loc>
+    <lastmod>2024-12-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
 </urlset>
