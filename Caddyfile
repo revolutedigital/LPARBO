@@ -1,0 +1,12 @@
+:$PORT {
+    root * /app
+    file_server
+    try_files {path} /index.html
+    encode gzip
+
+    header {
+        X-Frame-Options "SAMEORIGIN"
+        X-Content-Type-Options "nosniff"
+        Referrer-Policy "strict-origin-when-cross-origin"
+    }
+}

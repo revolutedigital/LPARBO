@@ -1,0 +1,8 @@
+[phases.setup]
+nixPkgs = ["caddy"]
+
+[phases.install]
+cmds = ["echo 'Static site - no install needed'"]
+
+[start]
+cmd = "caddy run --config Caddyfile --adapter caddyfile"
