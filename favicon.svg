@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D4B982;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#C9A961;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#B8965A;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100" height="100" fill="#1B3A2F" rx="20"/>
+
+  <!-- Stylized Tree/Arboretum Symbol -->
+  <!-- Central trunk -->
+  <rect x="46" y="55" width="8" height="25" fill="url(#goldGradient)" rx="2"/>
+
+  <!-- Tree crown - geometric triangular layers -->
+  <path d="M 50 20 L 35 40 L 65 40 Z" fill="url(#goldGradient)" opacity="0.9"/>
+  <path d="M 50 30 L 30 50 L 70 50 Z" fill="url(#goldGradient)" opacity="0.95"/>
+  <path d="M 50 40 L 25 60 L 75 60 Z" fill="url(#goldGradient)"/>
+
+  <!-- Decorative dots representing nature/leaves -->
+  <circle cx="20" cy="35" r="2" fill="#C9A961" opacity="0.6"/>
+  <circle cx="80" cy="35" r="2" fill="#C9A961" opacity="0.6"/>
+  <circle cx="15" cy="50" r="1.5" fill="#D4B982" opacity="0.5"/>
+  <circle cx="85" cy="50" r="1.5" fill="#D4B982" opacity="0.5"/>
+
+  <!-- Premium border accent -->
+  <rect width="100" height="100" fill="none" stroke="url(#goldGradient)" stroke-width="2" rx="20" opacity="0.3"/>
+</svg>

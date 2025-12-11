@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://lparbo-production.up.railway.app/</loc>
+    <lastmod>2024-12-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://lparbo-production.up.railway.app/images/IMG4-V1-2.webp</image:loc>
+      <image:title>Residencial Arboretum Vinhedo - Vista Aérea</image:title>
+      <image:caption>Condomínio de lotes de luxo em Vinhedo-SP</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://lparbo-production.up.railway.app/images/LOGO.webp</image:loc>
+      <image:title>Residencial Arboretum Logo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://lparbo-production.up.railway.app/images/SILURE-LOGO.webp</image:loc>
+      <image:title>Silure Incorporadora</image:title>
+    </image:image>
+  </url>
+</urlset>
