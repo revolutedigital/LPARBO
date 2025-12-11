@@ -10,10 +10,10 @@ leadModalForm.addEventListener('submit', async (e) => {
         name: formData.get('name'),
         email: formData.get('email'),
         phone: formData.get('phone'),
-        source: 'Landing Page - Modal Premium'
+        source: 'LP' // Campo ANUNCIO
     };
 
-    console.log('🎯💰🔥 LEAD QUENTE CAPTURADO (Modal Premium):', data);
+    console.log('🎯💰🔥 LEAD QUENTE CAPTURADO:', data);
 
     // Salva no localStorage
     localStorage.setItem('leadData', JSON.stringify(data));
@@ -40,12 +40,13 @@ leadModalForm.addEventListener('submit', async (e) => {
     window.location.href = '/thank-you.html';
 });
 
-// EXEMPLO DE COMO FICARÁ A ESTRUTURA DOS DADOS:
+// ESTRUTURA DOS DADOS QUE VAI PARA A PLANILHA:
 /*
-{
-    "name": "João Silva",
-    "email": "joao@email.com",
-    "phone": "(19) 99999-9999",
-    "source": "Landing Page - Modal Premium"
-}
+Planilha: https://docs.google.com/spreadsheets/d/1beiJ1wn-1xCB8lHX5lvVudd_jgzBtFoSJ11i76tQyCA/edit
+
+Campos:
+A: NOME       → "João Silva"
+B: TELEFONE   → "(19) 99999-9999"
+C: EMAIL      → "joao@email.com"
+D: ANUNCIO    → "LP"
 */
