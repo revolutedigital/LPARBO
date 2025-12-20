@@ -2647,7 +2647,8 @@
                     <input type="email" name="email" placeholder="Seu e-mail" required class="modal-input">
                 </div>
                 <div class="modal-form-group">
-                    <input type="tel" name="phone" placeholder="Seu WhatsApp" required class="modal-input">
+                    <input type="tel" name="phone" placeholder="(11) 99999-9999" required class="modal-input" id="phoneInput" minlength="15" maxlength="15">
+                    <span class="phone-error" id="phoneError" style="display: none; color: #e74c3c; font-size: 0.8rem; margin-top: 4px;">Digite um WhatsApp válido com DDD</span>
                 </div>
                 <button type="submit" class="modal-submit-btn">
                     <span>Quero Agendar Minha Visita</span>
@@ -3388,8 +3389,22 @@
 
         // Submit do formulário do modal
         let isSubmitting = false; // Flag para prevenir double-click
+        const phoneError = document.getElementById('phoneError');
+        const phoneInput = document.getElementById('phoneInput');
+
         leadModalForm.addEventListener('submit', async (e) => {
             e.preventDefault();
+
+            // Valida telefone (deve ter 11 dígitos)
+            const phoneDigits = phoneInput.value.replace(/\D/g, '');
+            if (phoneDigits.length < 11) {
+                phoneError.style.display = 'block';
+                phoneInput.style.borderColor = '#e74c3c';
+                phoneInput.focus();
+                return;
+            }
+            phoneError.style.display = 'none';
+            phoneInput.style.borderColor = '';
 
             // Previne múltiplos envios
             if (isSubmitting) {
@@ -3440,8 +3455,7 @@
         });
 
         // Máscara WhatsApp - Modal Form
-        const modalPhoneInput = leadModalForm.querySelector('input[name="phone"]');
-        modalPhoneInput.addEventListener('input', (e) => {
+        phoneInput.addEventListener('input', (e) => {
             let value = e.target.value.replace(/\D/g, '');
             if (value.length > 11) value = value.slice(0, 11);
             if (value.length > 6) {
@@ -3452,6 +3466,11 @@
                 value = `(${value}`;
             }
             e.target.value = value;
+            // Esconde erro quando começa a digitar
+            if (phoneError.style.display === 'block') {
+                phoneError.style.display = 'none';
+                phoneInput.style.borderColor = '';
+            }
         });
 
         // MODAIS DE POLÍTICA - Privacidade e Termos
