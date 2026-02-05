@@ -33,24 +33,6 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1581524869002146');
     fbq('track', 'PageView');
-
-    // META PIXEL - Lead Event (Conversão confirmada)
-    fbq('track', 'Lead', {
-        content_name: 'Lead Convertido - Thank You Page',
-        content_category: 'Real Estate Lead',
-        currency: 'BRL',
-        value: 690000,
-        status: 'completed'
-    });
-
-    // META PIXEL - CompleteRegistration Event
-    fbq('track', 'CompleteRegistration', {
-        content_name: 'Lead Registration Complete',
-        status: 'completed'
-    });
-
-    console.log('✅ META PIXEL: Lead Event Disparado na Thank You Page');
-    console.log('✅ META PIXEL: CompleteRegistration Event Disparado');
     </script>
     <noscript>
         <img height="1" width="1" style="display:none"
@@ -305,14 +287,28 @@
         <a href="/index.html" class="back-link">← Voltar para o site</a>
     </div>
 
+    <!-- Meta Pixel & Google Ads - Conversion Events (disparados após página carregar) -->
     <script>
-        // Redirect para WhatsApp após 8 segundos (opcional)
-        setTimeout(() => {
-            const userConfirm = confirm('Deseja falar agora com um consultor via WhatsApp?');
-            if (userConfirm) {
-                window.open('https://wa.me/5519996808282?text=Olá! Acabei de me cadastrar no site do Residencial Arboretum e gostaria de mais informações', '_blank');
-            }
-        }, 8000);
+    window.addEventListener('load', function() {
+        // META PIXEL - Lead Event (Conversão Principal)
+        if (typeof fbq !== 'undefined') {
+            fbq('track', 'Lead', {
+                content_name: 'Lead Residencial Arboretum',
+                content_category: 'Real Estate',
+                currency: 'BRL',
+                value: 690000
+            });
+            console.log('✅ META PIXEL: Lead Event disparado');
+
+            fbq('track', 'CompleteRegistration', {
+                content_name: 'Cadastro Completo',
+                status: 'complete'
+            });
+            console.log('✅ META PIXEL: CompleteRegistration Event disparado');
+        } else {
+            console.error('❌ META PIXEL: fbq não encontrado');
+        }
+    });
     </script>
 </body>
 </html>
